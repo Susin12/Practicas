@@ -1,0 +1,17 @@
+Algoritmo Totalcompra
+	
+	Definir cantidad Como Entero
+	Definir precio  Como Real
+	Definir total Como Real
+	
+	precio <- 12
+	
+	
+	Escribir "ingrese la cantidad de cuadernos ;"
+	Leer cantidad
+	
+	total <- cantidad * precio
+	
+	Escribir " el total a pagar es; ", total, "Bs"
+	
+FinAlgoritmo
