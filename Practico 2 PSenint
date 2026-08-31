@@ -1,0 +1,16 @@
+Algoritmo Registro
+	Definir nombre Como Cadena
+	Definir edad Como Entero
+	Definir carrera Como Cadena
+	Definir semestre Como Entero
+	Escribir ' Ingrese su nombre completo;'
+	Leer nombre
+	Escribir ' Ingrese su edad ;'
+	Leer edad
+	Escribir 'Ingrese su carrera;'
+	Leer semestre
+	Escribir 'Nonmbre;', nombre
+	Escribir 'Edad; ', edad
+	Escribir 'Carrera;', carrera
+	Escribir 'Semestre ;', semestre
+FinAlgoritmo
