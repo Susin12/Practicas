@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+   //declaracion de variables 
+   double nota;
+   
+   
+   //entrada de datos
+    cout<< "ingrese la nota final; ";
+    cin >> nota;
+  
+    
+    //proceso y salida 
+   if (nota >= 51) { 
+       cout << "aprobado" << endl;}
+    else { cout << "reprobado " << endl;}
+    
+   
+   
+return 0;
+}
