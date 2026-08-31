@@ -1,0 +1,11 @@
+Algoritmo sumadosnumeros
+	Definir num1 Como Entero
+	Definir num2 Como Entero
+	Definir suma Como Entero
+	Escribir ' Ingrese el primer numero;'
+	Leer num1
+	Escribir ' Ingrese el segundo numero;'
+	Leer num2
+	suma <- num1+num2
+	Escribir 'la suma es;', suma
+FinAlgoritmo
