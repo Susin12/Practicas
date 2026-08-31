@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+   //declaracion de variables 
+   double compra;
+   double descuento;
+   double total;
+   
+   
+   //entrada de datos
+    cout<< "ingrese el monto de la compra; ";
+    cin >> compra;
+  
+    
+    //proceso 
+   if (compra > 100) { 
+       descuento = compra * 0.10 ;
+       total = compra - descuento ;
+       
+       cout << "se aplico un descuento del 10%." << endl;
+       cout << "descuento; " << descuento << "Bs" << endl;
+       cout << "total final a pagar; " << total << "Bs" << endl;}
+    else { total = compra;
+    cout << " no corresponde descuento;" << endl;
+        cout << " total a pagar; " << total << "Bs" << endl;}
+        
+return 0;
+}
