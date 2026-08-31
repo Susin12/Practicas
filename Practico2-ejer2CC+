@@ -1,0 +1,24 @@
+#include <iostream>
+using namespace std;
+
+int main () {
+     //Declaracion variables 
+     int num1;
+     int num2;
+     int suma;
+     
+     
+     //entrada de datos
+     cout << "ingrese el primer nombre; ";
+     cin>> num1;
+     
+     cout << "ingrese el segundo nombre; ";
+     cin>> num2;
+     
+     //proceso
+     suma=num1+num2;
+     
+     //salida de datos 
+     cout << "la suma es;" << suma << endl;
+       return 0;}
+       
