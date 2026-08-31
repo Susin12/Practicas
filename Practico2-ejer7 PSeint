@@ -1,0 +1,17 @@
+Algoritmo Resultadoacademico
+	
+	
+	Definir nota  Como Real
+	
+	Escribir "ingrese la nota final ;"
+	Leer nota
+	
+	Si nota >=51 entonces 
+		Escribir  "aprobado"
+	sino 
+		Escribir "reprobado"
+		
+	FinSi
+	
+	
+FinAlgoritmo
