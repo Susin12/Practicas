@@ -1,0 +1,20 @@
+Algoritmo Numeromayor
+	
+	
+	Definir num1  Como Real
+	Definir num2 Como Real
+	
+
+	Escribir "ingrese el primer numero ;"
+	Leer num1
+	Escribir " ingrese el segundo numeor :"
+	Leer num2 
+	Si num1 > num2 ENTONCES 
+		Escribir  " el numero mayor es; ", num1 
+	sino 
+		Escribir " los dos numeros son iguales"
+		
+	FinSi
+	
+	
+FinAlgoritmo
