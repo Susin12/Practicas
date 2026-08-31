@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+
+int main () {
+    
+    //declaracion de varibles 
+    double nota1;
+    double nota2;
+    double nota3;
+    double promedio;
+     
+     //entrada de datos
+     cout << "ingrese el primer nota; ";
+     cin>> nota1;
+     
+     cout << "ingrese el segundo nota; ";
+     cin>> nota2;
+     
+     cout << "ingrese la tercera nota;";
+     cin>> nota3;
+     
+     //proceso
+     promedio=(nota1+nota2+nota3)/3;
+     
+     //salida de datos 
+     cout << "el promedio es;" <<promedio << endl;
+     
+       return 0;}
