@@ -1,0 +1,34 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+   //declaracion de variables 
+  double horas;
+  double pagahora;
+  double salario;
+  double bono;
+  
+   
+   
+   //entrada de datos
+   
+    cout<< "ingrese las horas trabajadas; ";
+    cin >> horas;
+    cout<< "ingrse el pago por horas; ";
+    cin >> pagahora;
+  
+    
+    //proceso
+    salario = horas * pagahora;
+    
+    
+   if (horas > 40 ) { 
+       bono= salario * 0.10;
+       salario= salario + bono;}
+       // salida de datos 
+       cout << " el salario total es " << salario << "Bs" << endl;
+       
+      
+return 0;
+}
