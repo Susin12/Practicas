@@ -1,0 +1,31 @@
+Algoritmo Parimpar
+	
+	
+	Definir horas   Como Real
+	Definir pagahora como Real 
+	Definir salario como Real
+	Definir bono como Real 
+	
+	
+	Escribir "ingrese las horas trabajadas;"
+	Leer horas
+	
+	Escribir " ingrese el pago por hora;"
+	Leer pagahora
+	
+	salario <- hora * pagahora
+	
+	Si horas > 40 entonces 
+		bono  <- salario * 0.10
+		salario <- salario  + bono 
+		Escribir "Se aplico el bono del 10%"
+		Escribir " bono; " , bono, "Bs"
+		Escribir " Total final a pagar ;" , total,"Bs"
+	
+
+	FinSi
+	 ESCRIBIR " el salario total es;", salario, "Bs"
+	
+	
+	
+FinAlgoritmo
