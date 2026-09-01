@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+   //declaracion de variables 
+  int numero;
+   
+   
+   //entrada de datos
+   
+    cout<< "ingrese un numero entero; ";
+    cin >> numero;
+  
+    
+    //proceso 
+   if (numero %2 == 0 ) { 
+      cout << "el numero par;" << endl;}
+      else { cout << "el numero es impar; " << endl;}
+      
+return 0;
+}
