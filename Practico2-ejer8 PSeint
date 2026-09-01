@@ -1,0 +1,27 @@
+Algoritmo Descuentocompra
+	
+	
+	Definir compra  Como Real
+	Definir descuento como real 
+	Definir total como Real
+	
+	
+	Escribir "ingrese el monto de la compra;"
+	Leer compra
+	
+	Si compra > 100 Entonces
+		descuento <- compra * 0.1
+		total <- compra - descuento
+		Escribir "Se aplico un descuento del 10%"
+		Escribir " Descuento; " , descuento, "Bs"
+		Escribir " Total final a pagar ;" , total,"Bs"
+	SiNo
+		total <- compra
+		Escribir " No corresponde descuento"
+		Escribir "Total a pagar;", total, "Bs"
+
+	FinSi
+	
+	
+	
+FinAlgoritmo
