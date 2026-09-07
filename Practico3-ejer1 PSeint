@@ -1,0 +1,10 @@
+Algoritmo PrepararTe
+		
+		Escribir "Calentar el agua"
+		Escribir "Colocar la bolsita de te en la taza"
+		Escribir "Verter el agua caliente"
+		Escribir "Dejar reposar el te"
+		Escribir "Retirar la bolsita"
+		Escribir "La taza de te esta lista"
+		
+FinAlgoritmo
