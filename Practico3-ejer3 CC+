@@ -1,0 +1,36 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    double parcial1;
+    double parcial2;
+    double examen_final;
+    double proyecto;
+    double nota_final;
+
+    cout << "Ingrese nota del primer parcial: ";
+    cin >> parcial1;
+
+    cout << "Ingrese nota del segundo parcial: ";
+    cin >> parcial2;
+
+    cout << "Ingrese nota del examen final: ";
+    cin >> examen_final;
+
+    cout << "Ingrese nota del proyecto: ";
+    cin >> proyecto;
+
+    nota_final = parcial1 + parcial2 + examen_final + proyecto;
+
+    cout << "Nota final: " << nota_final << endl;
+
+    if (nota_final >= 51) {
+        cout << "APROBO" << endl;
+    }
+    else {
+        cout << "REPROBO" << endl;
+    }
+
+    return 0;
+}
