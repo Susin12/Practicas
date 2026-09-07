@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    double R, H;
+    double areaLateral, areaTotal, volumen;
+    double pi = 3.1416;
+
+    cout << "Ingrese el radio: ";
+    cin >> R;
+
+    cout << "Ingrese la altura: ";
+    cin >> H;
+
+    areaLateral = 2 * pi * R * H;
+    areaTotal = 2 * pi * R * (R + H);
+    volumen = pi * R * R * H;
+
+    cout << "Area lateral: " << areaLateral << endl;
+    cout << "Area total: " << areaTotal << endl;
+    cout << "Volumen: " << volumen << endl;
+
+    return 0;
+}
