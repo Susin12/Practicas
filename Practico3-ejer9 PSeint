@@ -1,0 +1,18 @@
+Algoritmo ConvertirMinutos
+	
+    Definir minutos, dias, horas, resto Como Entero
+	
+    Escribir "Ingrese los minutos: "
+    Leer minutos
+	
+    dias <- Trunc(minutos / 1440)
+    resto <- minutos MOD 1440
+	
+    horas <- Trunc(resto / 60)
+    minutos <- resto MOD 60
+	
+    Escribir "Dias: ", dias
+    Escribir "Horas: ", horas
+    Escribir "Minutos: ", minutos
+	
+FinAlgoritmo
