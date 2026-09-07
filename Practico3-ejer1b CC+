@@ -1,0 +1,15 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    cout << "Insertar tarjeta" << endl;
+    cout << "Ingresar PIN" << endl;
+    cout << "Seleccionar retiro" << endl;
+    cout << "Ingresar monto" << endl;
+    cout << "Verificar saldo" << endl;
+    cout << "Entregar dinero" << endl;
+    cout << "Retirar tarjeta" << endl;
+
+    return 0;
+}
