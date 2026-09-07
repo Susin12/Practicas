@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    double A, B, C, D, E, F;
+    double x, z, determinante;
+
+    cout << "Ingrese A, B, C: ";
+    cin >> A >> B >> C;
+
+    cout << "Ingrese D, E, F: ";
+    cin >> D >> E >> F;
+
+    determinante = A * E - B * D;
+
+    if (determinante != 0) {
+
+        x = (C * E - B * F) / determinante;
+        z = (A * F - C * D) / determinante;
+
+        cout << "X = " << x << endl;
+        cout << "Z = " << z << endl;
+
+    } else {
+
+        cout << "El sistema no tiene una solucion unica." << endl;
+    }
+
+    return 0;
+}
