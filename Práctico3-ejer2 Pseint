@@ -1,0 +1,20 @@
+Algoritmo Cilindro
+
+    Definir R, H Como Real
+    Definir areaLateral, areaTotal, volumen Como Real
+
+    Escribir "Ingrese el radio: "
+    Leer R
+
+    Escribir "Ingrese la altura: "
+    Leer H
+
+    areaLateral <- 2 * PI * R * H
+    areaTotal <- 2 * PI * R * (R + H)
+    volumen <- PI * R * R * H
+
+    Escribir "Area lateral: ", areaLateral
+    Escribir "Area total: ", areaTotal
+    Escribir "Volumen: ", volumen
+
+FinAlgoritmo
