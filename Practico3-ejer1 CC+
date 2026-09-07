@@ -1,0 +1,14 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    cout << "Calentar el agua" << endl;
+    cout << "Colocar la bolsita de te en la taza" << endl;
+    cout << "Verter el agua caliente" << endl;
+    cout << "Dejar reposar el te" << endl;
+    cout << "Retirar la bolsita" << endl;
+    cout << "La taza de te esta lista" << endl;
+
+    return 0;
+}
