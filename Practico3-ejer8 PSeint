@@ -1,0 +1,28 @@
+Algoritmo SistemaEcuaciones
+	
+    Definir A, B, C, D, E, F Como Real
+    Definir x, z, determinante Como Real
+	
+    Escribir "Ingrese A, B, C: "
+    Leer A, B, C
+	
+    Escribir "Ingrese D, E, F: "
+    Leer D, E, F
+	
+    determinante <- A * E - B * D
+	
+    Si determinante <> 0 Entonces
+		
+        x <- (C * E - B * F) / determinante
+        z <- (A * F - C * D) / determinante
+		
+        Escribir "X = ", x
+        Escribir "z = ", z
+		
+    SiNo
+		
+        Escribir "El sistema no tiene una solucion unica."
+		
+    FinSi
+	
+FinAlgoritmo
