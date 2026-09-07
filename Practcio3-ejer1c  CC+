@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    double a, b, c;
+
+    cout << "Ingrese a: ";
+    cin >> a;
+
+    cout << "Ingrese b: ";
+    cin >> b;
+
+    cout << "Ingrese c: ";
+    cin >> c;
+
+    cout << "Calcular el discriminante" << endl;
+    cout << "Calcular las soluciones" << endl;
+    cout << "Mostrar las soluciones" << endl;
+
+    return 0;
+}
