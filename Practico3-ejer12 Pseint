@@ -1,0 +1,31 @@
+Algoritmo Estacion
+	
+    Definir dia, mes, anio Como Entero
+	
+    Escribir "Ingrese dia: "
+    Leer dia
+	
+    Escribir "Ingrese mes: "
+    Leer mes
+	
+    Escribir "Ingrese anio: "
+    Leer anio
+	
+    Si (mes = 12 Y dia >= 21) O (mes = 1) O (mes = 2) O (mes = 3 Y dia < 21) Entonces
+        Escribir "Verano"
+		
+    SiNo
+        Si (mes = 3 Y dia >= 21) O (mes = 4) O (mes = 5) O (mes = 6 Y dia < 21) Entonces
+            Escribir "Otono"
+			
+        SiNo
+            Si (mes = 6 Y dia >= 21) O (mes = 7) O (mes = 8) O (mes = 9 Y dia < 21) Entonces
+                Escribir "Invierno"
+				
+            SiNo
+                Escribir "Primavera"
+            FinSi
+        FinSi
+    FinSi
+	
+FinAlgoritmo
