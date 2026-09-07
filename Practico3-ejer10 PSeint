@@ -1,0 +1,27 @@
+Algoritmo DiferenciaFechas
+	
+    Definir dia1, mes1, dia2, mes2 Como Entero
+    Definir fecha1, fecha2, diferencia Como Entero
+    Definir meses, dias Como Entero
+	
+    Escribir "Ingrese dia y mes de la fecha inicial: "
+    Leer dia1, mes1
+	
+    Escribir "Ingrese dia y mes de la fecha final: "
+    Leer dia2, mes2
+	
+    fecha1 <- mes1 * 30 + dia1
+    fecha2 <- mes2 * 30 + dia2
+	
+    diferencia <- fecha2 - fecha1
+	
+    Si diferencia < 0 Entonces
+        diferencia <- diferencia * (-1)
+    FinSi
+	
+    meses <- Trunc(diferencia / 30)
+    dias <- diferencia MOD 30
+	
+    Escribir "Diferencia: ", meses, " meses ", dias, " dias"
+	
+FinAlgoritmo
