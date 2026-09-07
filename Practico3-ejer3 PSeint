@@ -1,0 +1,28 @@
+Algoritmo NotaFinal
+
+Definir parcial1, parcial2, examen_final, proyecto Como Real
+Definir nota_final Como Real
+
+Escribir "Ingrese nota del primer parcial: "
+Leer parcial1
+
+Escribir "Ingrese nota del segundo parcial: "
+Leer parcial2
+
+Escribir "Ingrese nota del examen final: "
+Leer examen_final
+
+Escribir "Ingrese nota del proyecto: "
+Leer proyecto
+
+nota_final <- parcial1 + parcial2 + examen_final + proyecto
+
+Escribir "Nota final: ", nota_final
+
+Si nota_final >= 51 Entonces
+	Escribir "APROBO"
+SiNo
+	Escribir "REPROBO"
+FinSi
+
+FinAlgoritmo
