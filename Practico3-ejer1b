@@ -1,0 +1,12 @@
+Algoritmo RetirarDinero
+	
+    Escribir "Insertar tarjeta"
+    Escribir "Ingresar PIN"
+    Escribir "Seleccionar retiro"
+    Escribir "Ingresar monto"
+    Escribir "Verificar saldo"
+    Escribir "Entregar dinero"
+    Escribir "Retirar tarjeta"
+	
+FinAlgoritmo
+	
