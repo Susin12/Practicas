@@ -1,0 +1,25 @@
+Algoritmo Aguinaldo
+	
+    Definir nombre Como Caracter
+    Definir salario, monto_aguinaldo Como Real
+    Definir meses Como Entero
+	
+    Escribir "Ingrese el nombre: "
+    Leer nombre
+	
+    Escribir "Ingrese el salario mensual: "
+    Leer salario
+	
+    Escribir "Ingrese los meses trabajados: "
+    Leer meses
+	
+    Si meses = 12 Entonces
+        monto_aguinaldo <- salario
+    SiNo
+        monto_aguinaldo <- salario * meses / 12
+    FinSi
+	
+    Escribir "Nombre: ", nombre
+    Escribir "Aguinaldo: Bs ", monto_aguinaldo
+	
+FinAlgoritmo
