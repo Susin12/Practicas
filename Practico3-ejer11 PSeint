@@ -1,0 +1,42 @@
+Algoritmo TarifaEnergia
+	
+    Definir kWh, tarifa, total Como Real
+    Definir categoria Como Caracter
+	
+    Escribir "Ingrese el consumo en kWh: "
+    Leer kWh
+	
+    Si kWh = 0 Entonces
+		
+        Escribir "SIN CONSUMO REGISTRADO"
+		
+    SiNo
+		
+        Si kWh > 0 Y kWh <= 100 Entonces
+            tarifa <- 0.30
+            categoria <- "Categoria basica"
+			
+        SiNo
+            Si kWh > 100 Y kWh <= 300 Entonces
+                tarifa <- 0.50
+                categoria <- "Categoria media"
+				
+            SiNo
+                Si kWh > 300 Y kWh <= 600 Entonces
+                    tarifa <- 0.75
+                    categoria <- "Categoria alta"
+					
+                SiNo
+                    tarifa <- 1.10
+                    categoria <- "Categoria industrial"
+                FinSi
+            FinSi
+        FinSi
+		
+        total <- kWh * tarifa + 8
+		
+        Escribir "Categoria: ", categoria
+        Escribir "Pago total: Bs ", total
+		
+    FinSi
+	
