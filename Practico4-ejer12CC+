@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int A, B;
+    int x, y, residuo, mcd, mcm;
+
+    cout << "Ingrese A: ";
+    cin >> A;
+
+    cout << "Ingrese B: ";
+    cin >> B;
+
+    x = A;
+    y = B;
+
+    while (y != 0) {
+        residuo = x % y;
+        x = y;
+        y = residuo;
+    }
+
+    mcd = x;
+    mcm = (A * B) / mcd;
+
+    cout << "MCD = " << mcd << endl;
+    cout << "MCM = " << mcm << endl;
+
+    return 0;
+}
