@@ -1,0 +1,23 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main() {
+    int n;
+    double X, suma = 0, factorial = 1;
+
+    cout << "Ingrese X: ";
+    cin >> X;
+
+    cout << "Ingrese n: ";
+    cin >> n;
+
+    for (int i = 1; i <= n; i++) {
+        factorial *= i;
+        suma += pow(X, i) / factorial;
+    }
+
+    cout << "S = " << suma << endl;
+
+    return 0;
+}
