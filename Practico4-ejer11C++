@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int A, B, residuo;
+
+    cout << "Ingrese A: ";
+    cin >> A;
+
+    cout << "Ingrese B: ";
+    cin >> B;
+
+    while (B != 0) {
+        residuo = A % B;
+        A = B;
+        B = residuo;
+    }
+
+    cout << "MCD = " << A << endl;
+
+    return 0;
+}
