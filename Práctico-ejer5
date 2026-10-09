@@ -1,0 +1,29 @@
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int numero, digito, complemento;
+    int invertido = 0, resultado = 0;
+
+    cout << "Ingrese un numero: ";
+    cin >> numero;
+
+    while (numero > 0) {
+        digito = numero % 10;
+        complemento = 9 - digito;
+
+        invertido = invertido * 10 + complemento;
+        numero = numero / 10;
+    }
+
+    while (invertido > 0) {
+        digito = invertido % 10;
+        resultado = resultado * 10 + digito;
+        invertido = invertido / 10;
+    }
+
+    cout << "Complemento a 9: " << resultado << endl;
+
+    return 0;
+}
