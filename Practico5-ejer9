@@ -1,0 +1,45 @@
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int pin, numero, digito, anterior;
+    int cantidad = 0;
+    bool valido = true;
+
+    cout << "Ingrese el PIN de 4 digitos: ";
+    cin >> pin;
+
+    numero = pin;
+
+    if (numero < 0) {
+        valido = false;
+        numero = -numero;
+    }
+
+    anterior = -1;
+
+    while (numero > 0) {
+        digito = numero % 10;
+        cantidad++;
+
+        if (digito == anterior) {
+            valido = false;
+        }
+
+        anterior = digito;
+        numero = numero / 10;
+    }
+
+    if (cantidad != 4) {
+        valido = false;
+    }
+
+    if (valido) {
+        cout << "PIN valido" << endl;
+    } else {
+        cout << "PIN invalido" << endl;
+    }
+
+    return 0;
+}
