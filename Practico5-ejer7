@@ -1,0 +1,37 @@
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int numero, digito;
+    int suma = 0, contador = 0, cantidad = 0;
+    float promedio;
+
+    cout << "Ingrese el numero: ";
+    cin >> numero;
+
+    while (numero > 0) {
+        digito = numero % 10;
+
+        suma = suma + digito;
+        cantidad++;
+
+        if (digito > 5) {
+            contador++;
+        }
+
+        numero = numero / 10;
+    }
+
+    if (cantidad > 0) {
+        promedio = (float)suma / cantidad;
+
+        cout << "Total de horas: " << suma << endl;
+        cout << "Apps con mas de 5 horas: "
+             << contador << endl;
+        cout << "Promedio de horas: "
+             << promedio << endl;
+    }
+
+    return 0;
+}
