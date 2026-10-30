@@ -1,0 +1,53 @@
+#include <iostream>
+using namespace std;
+
+void leerDatos(double &p1, double &p2, double &practico,
+               double &final, int &faltas) {
+    cout << "Nota del primer parcial: ";
+    cin >> p1;
+    cout << "Nota del segundo parcial: ";
+    cin >> p2;
+    cout << "Nota del practico: ";
+    cin >> practico;
+    cout << "Nota del examen final: ";
+    cin >> final;
+    cout << "Cantidad de faltas: ";
+    cin >> faltas;
+}
+
+double calcularNota(double p1, double p2,
+                    double practico, double final,
+                    int faltas) {
+    if (faltas > 9)
+        final = 0;
+
+    return p1 * 0.20 + p2 * 0.20
+         + practico * 0.20 + final * 0.40;
+}
+
+void mostrarResultado(double nota) {
+    cout << "Nota final: " << nota << endl;
+
+    if (nota >= 51)
+        cout << "ESTUDIANTE APROBADO" << endl;
+    else
+        cout << "ESTUDIANTE REPROBADO" << endl;
+}
+
+int main() {
+    double p1, p2, practico, final, nota;
+    int faltas;
+    char respuesta;
+
+    do {
+        leerDatos(p1, p2, practico, final, faltas);
+        nota = calcularNota(p1, p2, practico, final, faltas);
+        mostrarResultado(nota);
+
+        cout << "Desea calcular otro estudiante? (s/n): ";
+        cin >> respuesta;
+
+    } while (respuesta == 's' || respuesta == 'S');
+
+    return 0;
+}
