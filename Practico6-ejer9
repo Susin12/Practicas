@@ -1,36 +1,51 @@
 #include <iostream>
 using namespace std;
 
-void leerCantidades(int &h, int &q, int &p, int &s) {
-    cout << "Cantidad de hamburguesas: ";
-    cin >> h;
-    cout << "Cantidad de hamburguesas con queso: ";
-    cin >> q;
-    cout << "Cantidad de papas fritas: ";
-    cin >> p;
-    cout << "Cantidad de sodas: ";
-    cin >> s;
+int leerOpcion() {
+    int opcion;
+    cout << "1. Cuadrado" << endl;
+    cout << "2. Circulo" << endl;
+    cout << "3. Triangulo" << endl;
+    cout << "Seleccione una opcion: ";
+    cin >> opcion;
+    return opcion;
 }
 
-double calcularTotal(int h, int q, int p, int s) {
-    return h * 3.0 + q * 5.0 + p * 2.0 + s * 2.5;
+double calcularArea(int opcion) {
+    double lado, radio, base, altura;
+    const double PI = 3.1416;
+
+    if (opcion == 1) {
+        cout << "Ingrese el lado: ";
+        cin >> lado;
+        return lado * lado;
+    } else if (opcion == 2) {
+        cout << "Ingrese el radio: ";
+        cin >> radio;
+        return PI * radio * radio;
+    } else if (opcion == 3) {
+        cout << "Ingrese la base y altura: ";
+        cin >> base >> altura;
+        return (base * altura) / 2;
+    } else {
+        return -1;
+    }
 }
 
-void mostrarTotal(int h, int q, int p, int s, double total) {
-    cout << "Hamburguesas: Bs. " << h * 3.0 << endl;
-    cout << "Hamburguesas con queso: Bs. " << q * 5.0 << endl;
-    cout << "Papas fritas: Bs. " << p * 2.0 << endl;
-    cout << "Sodas: Bs. " << s * 2.5 << endl;
-    cout << "TOTAL A PAGAR: Bs. " << total << endl;
+void mostrarArea(double area) {
+    if (area < 0)
+        cout << "Opcion no valida." << endl;
+    else
+        cout << "El area es: " << area << endl;
 }
 
 int main() {
-    int h, q, p, s;
-    double total;
+    int opcion;
+    double area;
 
-    leerCantidades(h, q, p, s);
-    total = calcularTotal(h, q, p, s);
-    mostrarTotal(h, q, p, s, total);
+    opcion = leerOpcion();
+    area = calcularArea(opcion);
+    mostrarArea(area);
 
     return 0;
 }
