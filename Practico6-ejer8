@@ -1,0 +1,36 @@
+#include <iostream>
+using namespace std;
+
+void leerCantidades(int &h, int &q, int &p, int &s) {
+    cout << "Cantidad de hamburguesas: ";
+    cin >> h;
+    cout << "Cantidad de hamburguesas con queso: ";
+    cin >> q;
+    cout << "Cantidad de papas fritas: ";
+    cin >> p;
+    cout << "Cantidad de sodas: ";
+    cin >> s;
+}
+
+double calcularTotal(int h, int q, int p, int s) {
+    return h * 3.0 + q * 5.0 + p * 2.0 + s * 2.5;
+}
+
+void mostrarTotal(int h, int q, int p, int s, double total) {
+    cout << "Hamburguesas: Bs. " << h * 3.0 << endl;
+    cout << "Hamburguesas con queso: Bs. " << q * 5.0 << endl;
+    cout << "Papas fritas: Bs. " << p * 2.0 << endl;
+    cout << "Sodas: Bs. " << s * 2.5 << endl;
+    cout << "TOTAL A PAGAR: Bs. " << total << endl;
+}
+
+int main() {
+    int h, q, p, s;
+    double total;
+
+    leerCantidades(h, q, p, s);
+    total = calcularTotal(h, q, p, s);
+    mostrarTotal(h, q, p, s, total);
+
+    return 0;
+}
