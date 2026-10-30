@@ -1,0 +1,38 @@
+#include <iostream>
+using namespace std;
+
+int leerNumero() {
+    int n;
+    cout << "Ingrese un numero entre 1 y 9999: ";
+    cin >> n;
+    return n;
+}
+
+void desglosar(int n, int &u, int &d, int &c, int &m) {
+    u = n % 10;
+    d = (n / 10) % 10;
+    c = (n / 100) % 10;
+    m = (n / 1000) % 10;
+}
+
+void mostrar(int u, int d, int c, int m) {
+    cout << "Unidades: " << u << endl;
+    cout << "Decenas: " << d << endl;
+    cout << "Centenas: " << c << endl;
+    cout << "Unidades de mil: " << m << endl;
+}
+
+int main() {
+    int n, u, d, c, m;
+
+    n = leerNumero();
+
+    if (n > 0 && n < 10000) {
+        desglosar(n, u, d, c, m);
+        mostrar(u, d, c, m);
+    } else {
+        cout << "Numero no valido." << endl;
+    }
+
+    return 0;
+}
