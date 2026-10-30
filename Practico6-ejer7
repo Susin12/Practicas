@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+
+void leerDatos(double &a, double &b, double &c,
+               double &d, double &e) {
+    cout << "Ingrese a, b, c, d y e: ";
+    cin >> a >> b >> c >> d >> e;
+}
+
+void resolver(double a, double b, double c,
+              double d, double e) {
+    double det, detX, detY;
+
+    det = a * e - b * d;
+    detX = c * e - b * d;
+    detY = a * d - c * d;
+
+    if (det != 0) {
+        cout << "X = " << detX / det << endl;
+        cout << "Y = " << detY / det << endl;
+    } else if (detX == 0 && detY == 0) {
+        cout << "Puede tener infinitas soluciones." << endl;
+    } else {
+        cout << "No tiene solucion." << endl;
+    }
+}
+
+int main() {
+    double a, b, c, d, e;
+
+    leerDatos(a, b, c, d, e);
+    resolver(a, b, c, d, e);
+
+    return 0;
+}
