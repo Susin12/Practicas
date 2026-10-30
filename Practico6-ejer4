@@ -1,0 +1,53 @@
+#include <iostream>
+using namespace std;
+
+int leerHora() {
+    int h;
+    cout << "Ingrese la hora: ";
+    cin >> h;
+    return h;
+}
+
+int convertirSegundos(int h, int m, int s) {
+    return h * 3600 + m * 60 + s;
+}
+
+void calcularTiempo(int h1, int m1, int s1,
+                    int h2, int m2, int s2,
+                    int &h, int &m, int &s) {
+    int total = convertirSegundos(h2, m2, s2)
+              - convertirSegundos(h1, m1, s1);
+
+    h = total / 3600;
+    m = (total % 3600) / 60;
+    s = total % 60;
+}
+
+void mostrarTiempo(int h, int m, int s) {
+    cout << "Tiempo transcurrido: "
+         << h << ":" << m << ":" << s << endl;
+}
+
+int main() {
+    int h1, m1, s1, h2, m2, s2;
+    int h, m, s;
+
+    cout << "Primer horario:" << endl;
+    h1 = leerHora();
+    cout << "Ingrese los minutos: ";
+    cin >> m1;
+    cout << "Ingrese los segundos: ";
+    cin >> s1;
+
+    cout << "Segundo horario:" << endl;
+    h2 = leerHora();
+    cout << "Ingrese los minutos: ";
+    cin >> m2;
+    cout << "Ingrese los segundos: ";
+    cin >> s2;
+
+    calcularTiempo(h1, m1, s1, h2, m2, s2, h, m, s);
+    mostrarTiempo(h, m, s);
+
+    return 0;
+}
