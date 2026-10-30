@@ -1,0 +1,43 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+void leerDatos(double &a, double &b, double &c) {
+    cout << "Ingrese a, b y c: ";
+    cin >> a >> b >> c;
+}
+
+void resolver(double a, double b, double c,
+              double &x1, double &x2, int &caso) {
+    double d = b * b - 4 * a * c;
+
+    if (a == 0) {
+        caso = 0;
+    } else if (d < 0) {
+        caso = 1;
+    } else {
+        caso = 2;
+        x1 = (-b + sqrt(d)) / (2 * a);
+        x2 = (-b - sqrt(d)) / (2 * a);
+    }
+}
+
+void mostrar(double x1, double x2, int caso) {
+    if (caso == 0)
+        cout << "No es una ecuacion cuadratica." << endl;
+    else if (caso == 1)
+        cout << "No existen soluciones reales." << endl;
+    else
+        cout << "x1 = " << x1 << "\nx2 = " << x2 << endl;
+}
+
+int main() {
+    double a, b, c, x1 = 0, x2 = 0;
+    int caso;
+
+    leerDatos(a, b, c);
+    resolver(a, b, c, x1, x2, caso);
+    mostrar(x1, x2, caso);
+
+    return 0;
+}
