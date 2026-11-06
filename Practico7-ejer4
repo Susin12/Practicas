@@ -1,0 +1,40 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int FAC(int n) {
+    int f = 1;
+
+    for (int i = 1; i <= n; i++) {
+        f = f * i;
+    }
+
+    return f;
+}
+
+double SERIE(double x, int n) {
+    double s = 0;
+    int signo = 1;
+
+    for (int i = 1; i <= n; i = i + 2) {
+        s = s + signo * pow(x, i) / FAC(i);
+        signo = signo * -1;
+    }
+
+    return s;
+}
+
+int main() {
+    double x;
+    int n;
+
+    cout << "Ingrese X: ";
+    cin >> x;
+
+    cout << "Ingrese N: ";
+    cin >> n;
+
+    cout << "La suma es: " << SERIE(x, n);
+
+    return 0;
+}
