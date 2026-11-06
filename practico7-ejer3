@@ -1,0 +1,42 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int FAC(int n) {
+    int f = 1;
+
+    for (int i = 1; i <= n; i++) {
+        f = f * i;
+    }
+
+    return f;
+}
+
+double SERIE(double x, int n) {
+    double s = 0;
+
+    for (int i = 1; i <= n; i++) {
+        s = s + pow(x, i) / FAC(i);
+    }
+
+    return s;
+}
+
+int main() {
+    double x;
+    int n;
+
+    cout << "Ingrese X: ";
+    cin >> x;
+
+    cout << "Ingrese N: ";
+    cin >> n;
+
+    if (n <= 0) {
+        cout << "N debe ser positivo";
+    } else {
+        cout << "La suma es: " << SERIE(x, n);
+    }
+
+    return 0;
+}
