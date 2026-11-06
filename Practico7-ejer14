@@ -1,0 +1,86 @@
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+
+// Prototipos
+bool BISIESTO(int anio);
+bool FECHA(int d, int m, int a);
+long long A_DIAS(int d, int m, int a);
+long long DIFERENCIA(int d1, int m1, int a1,
+                     int d2, int m2, int a2);
+
+int main() {
+    int d1, m1, a1;
+    int d2, m2, a2;
+
+    cout << "Ingrese primera fecha (dia mes anio): ";
+    cin >> d1 >> m1 >> a1;
+
+    cout << "Ingrese segunda fecha (dia mes anio): ";
+    cin >> d2 >> m2 >> a2;
+
+    if (!FECHA(d1, m1, a1) || !FECHA(d2, m2, a2)) {
+        cout << "Fecha incorrecta";
+    } else {
+        cout << "Dias transcurridos: "
+             << DIFERENCIA(d1, m1, a1, d2, m2, a2);
+    }
+
+    return 0;
+}
+
+// Funcion para saber si el año es bisiesto
+bool BISIESTO(int anio) {
+    return (anio % 400 == 0) ||
+           (anio % 4 == 0 && anio % 100 != 0);
+}
+
+// Funcion para validar la fecha
+bool FECHA(int d, int m, int a) {
+    if (a < 1 || m < 1 || m > 12 || d < 1)
+        return false;
+
+    int dias[] = {
+        31, 28, 31, 30, 31, 30,
+        31, 31, 30, 31, 30, 31
+    };
+
+    if (BISIESTO(a)) dias[1] = 29;
+
+    return d <= dias[m-1];
+}
+
+// Funcion para convertir la fecha a dias
+long long A_DIAS(int d, int m, int a) {
+    long long total = 0;
+
+    for (int i = 1; i < a; i++) {
+        if (BISIESTO(i))
+            total += 366;
+        else
+            total += 365;
+    }
+
+    int dias[] = {
+        31, 28, 31, 30, 31, 30,
+        31, 31, 30, 31, 30, 31
+    };
+
+    if (BISIESTO(a)) dias[1] = 29;
+
+    for (int i = 1; i < m; i++) {
+        total += dias[i-1];
+    }
+
+    total += d;
+
+    return total;
+}
+
+// Funcion para calcular la diferencia
+long long DIFERENCIA(int d1, int m1, int a1,
+                     int d2, int m2, int a2) {
+
+    return llabs(A_DIAS(d2, m2, a2) -
+                 A_DIAS(d1, m1, a1));
+}c
