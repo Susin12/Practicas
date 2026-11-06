@@ -1,0 +1,50 @@
+#include <iostream>
+using namespace std;
+
+// Prototipos
+bool BISIESTO(int anio);
+bool FECHA(int dia, int mes, int anio);
+
+int main() {
+    int dia, mes, anio;
+
+    cout << "Ingrese dia: ";
+    cin >> dia;
+
+    cout << "Ingrese mes: ";
+    cin >> mes;
+
+    cout << "Ingrese anio: ";
+    cin >> anio;
+
+    if (FECHA(dia, mes, anio)) {
+        cout << "Fecha correcta";
+    } else {
+        cout << "Fecha incorrecta";
+    }
+
+    return 0;
+}
+
+// Funcion para saber si el año es bisiesto
+bool BISIESTO(int anio) {
+    return (anio % 400 == 0) ||
+           (anio % 4 == 0 && anio % 100 != 0);
+}
+
+// Funcion para validar la fecha
+bool FECHA(int dia, int mes, int anio) {
+    if (anio < 1 || mes < 1 || mes > 12 || dia < 1)
+        return false;
+
+    int dias[] = {
+        31, 28, 31, 30, 31, 30,
+        31, 31, 30, 31, 30, 31
+    };
+
+    if (BISIESTO(anio)) {
+        dias[1] = 29;
+    }
+
+    return dia <= dias[mes-1];
+}
