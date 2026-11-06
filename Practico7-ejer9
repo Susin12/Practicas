@@ -1,0 +1,38 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+// Prototipo
+int BINARIO(string x);
+
+int main() {
+    string x;
+
+    cout << "Ingrese un numero binario: ";
+    cin >> x;
+
+    int resultado = BINARIO(x);
+
+    if (resultado == -1) {
+        cout << "Numero binario incorrecto";
+    } else {
+        cout << "Numero decimal: " << resultado;
+    }
+
+    return 0;
+}
+
+// Desarrollo de la funcion
+int BINARIO(string x) {
+    int decimal = 0;
+
+    for (int i = 0; i < x.length(); i++) {
+        if (x[i] != '0' && x[i] != '1') {
+            return -1;
+        }
+
+        decimal = decimal * 2 + (x[i] - '0');
+    }
+
+    return decimal;
+}
