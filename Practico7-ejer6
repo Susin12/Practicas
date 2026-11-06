@@ -1,0 +1,32 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+// Prototipo
+void LITERAL(int dia, int mes, int anio);
+
+int main() {
+    LITERAL(20, 5, 99);
+
+    return 0;
+}
+
+// Desarrollo de la funcion
+void LITERAL(int dia, int mes, int anio) {
+    string meses[12] = {
+        "Enero", "Febrero", "Marzo", "Abril",
+        "Mayo", "Junio", "Julio", "Agosto",
+        "Septiembre", "Octubre", "Noviembre", "Diciembre"
+    };
+
+    if (mes < 1 || mes > 12) {
+        cout << "Mes incorrecto";
+    } else {
+        if (anio < 100) {
+            anio = anio + 1900;
+        }
+
+        cout << dia << " de " << meses[mes - 1]
+             << " de " << anio;
+    }
+}
