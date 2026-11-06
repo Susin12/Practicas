@@ -1,0 +1,42 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+// Prototipo
+void ROMANO(int n);
+
+int main() {
+    int n;
+
+    cout << "Ingrese un numero: ";
+    cin >> n;
+
+    ROMANO(n);
+
+    return 0;
+}
+
+// Desarrollo de la funcion
+void ROMANO(int n) {
+    int valores[] = {
+        1000, 900, 500, 400, 100, 90, 50,
+        40, 10, 9, 5, 4, 1
+    };
+
+    string simbolos[] = {
+        "M", "CM", "D", "CD", "C", "XC", "L",
+        "XL", "X", "IX", "V", "IV", "I"
+    };
+
+    if (n < 1 || n > 3999) {
+        cout << "Numero incorrecto";
+        return;
+    }
+
+    for (int i = 0; i < 13; i++) {
+        while (n >= valores[i]) {
+            cout << simbolos[i];
+            n = n - valores[i];
+        }
+    }
+}
