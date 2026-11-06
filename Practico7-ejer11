@@ -1,0 +1,88 @@
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+
+// Prototipos
+string UNIDADES(int n);
+string NUMERO(int n);
+void DINERO(double R);
+
+int main() {
+    double R;
+
+    cout << "Ingrese el monto: ";
+    cin >> R;
+
+    DINERO(R);
+
+    return 0;
+}
+
+// Funcion para numeros del 0 al 99
+string UNIDADES(int n) {
+    string u[] = {
+        "cero", "uno", "dos", "tres", "cuatro",
+        "cinco", "seis", "siete", "ocho", "nueve",
+        "diez", "once", "doce", "trece", "catorce",
+        "quince", "dieciseis", "diecisiete",
+        "dieciocho", "diecinueve", "veinte"
+    };
+
+    if (n <= 20) return u[n];
+
+    if (n < 30) return "veinti" + u[n-20];
+
+    string d[] = {
+        "", "", "", "treinta", "cuarenta",
+        "cincuenta", "sesenta", "setenta",
+        "ochenta", "noventa"
+    };
+
+    if (n % 10 == 0) return d[n/10];
+
+    return d[n/10] + " y " + u[n%10];
+}
+
+// Funcion para convertir numeros
+string NUMERO(int n) {
+    if (n <= 99) return UNIDADES(n);
+
+    if (n == 100) return "cien";
+
+    string c[] = {
+        "", "ciento", "doscientos", "trescientos",
+        "cuatrocientos", "quinientos", "seiscientos",
+        "setecientos", "ochocientos", "novecientos"
+    };
+
+    if (n < 1000) {
+        int resto = n % 100;
+
+        if (resto == 0) return c[n/100];
+
+        return c[n/100] + " " + UNIDADES(resto);
+    }
+
+    int miles = n / 1000;
+    int resto = n % 1000;
+
+    string texto;
+
+    if (miles == 1) texto = "mil";
+    else texto = UNIDADES(miles) + " mil";
+
+    if (resto > 0) texto += " " + NUMERO(resto);
+
+    return texto;
+}
+
+// Funcion principal del ejercicio
+void DINERO(double R) {
+    int total = round(R * 100);
+    int entero = total / 100;
+    int centavos = total % 100;
+
+    cout << NUMERO(entero) << " "
+         << centavos << "/100 bolivianos";
+}
