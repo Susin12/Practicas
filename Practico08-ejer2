@@ -1,0 +1,54 @@
+#include <iostream>
+using namespace std;
+
+const int MAX = 100;
+
+// Prototipos
+void leer(double v[], int &n);
+double buscarMinimo(const double v[], int n);
+void mostrar(const double v[], int n);
+
+int main() {
+    double v[MAX];
+    int n;
+
+    leer(v, n);
+
+    cout << "Vector: ";
+    mostrar(v, n);
+
+    cout << "Valor minimo: " << buscarMinimo(v, n) << endl;
+
+    return 0;
+}
+
+void leer(double v[], int &n) {
+    do {
+        cout << "Cantidad de elementos (1-100): ";
+        cin >> n;
+    } while (n < 1 || n > MAX);
+
+    for (int i = 0; i < n; i++) {
+        cout << "Ingrese el elemento " << i + 1 << ": ";
+        cin >> v[i];
+    }
+}
+
+double buscarMinimo(const double v[], int n) {
+    double menor = v[0];
+
+    for (int i = 1; i < n; i++) {
+        if (v[i] < menor) {
+            menor = v[i];
+        }
+    }
+
+    return menor;
+}
+
+void mostrar(const double v[], int n) {
+    for (int i = 0; i < n; i++) {
+        cout << v[i] << " ";
+    }
+    cout << endl;
+}
