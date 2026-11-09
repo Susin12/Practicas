@@ -1,0 +1,74 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+const int MAX = 100;
+
+// Prototipos
+void leer(string nombres[], double notas[], int n);
+void ordenarPorNota(string nombres[], double notas[], int n);
+void mostrarTres(const string nombres[],
+                 const double notas[], int n);
+
+int main() {
+    string nombres[MAX];
+    double notas[MAX];
+    int n;
+
+    do {
+        cout << "Cantidad de estudiantes (minimo 3): ";
+        cin >> n;
+    } while (n < 3 || n > MAX);
+
+    leer(nombres, notas, n);
+
+    ordenarPorNota(nombres, notas, n);
+
+    cout << "\nLOS TRES MEJORES ESTUDIANTES\n";
+
+    mostrarTres(nombres, notas, n);
+
+    return 0;
+}
+
+void leer(string nombres[], double notas[], int n) {
+    for (int i = 0; i < n; i++) {
+        cout << "\nNombre del estudiante " << i + 1 << ": ";
+        cin >> ws;
+        getline(cin, nombres[i]);
+
+        do {
+            cout << "Ingrese la nota (0-100): ";
+            cin >> notas[i];
+        } while (notas[i] < 0 || notas[i] > 100);
+    }
+}
+
+void ordenarPorNota(string nombres[], double notas[], int n) {
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = 0; j < n - 1 - i; j++) {
+
+            if (notas[j] < notas[j + 1]) {
+
+                double auxiliar = notas[j];
+                notas[j] = notas[j + 1];
+                notas[j + 1] = auxiliar;
+
+                string nombreAuxiliar = nombres[j];
+                nombres[j] = nombres[j + 1];
+                nombres[j + 1] = nombreAuxiliar;
+            }
+        }
+    }
+}
+
+void mostrarTres(const string nombres[],
+                 const double notas[], int n) {
+
+    for (int i = 0; i < 3 && i < n; i++) {
+        cout << i + 1 << ". "
+             << nombres[i]
+             << " - Nota: "
+             << notas[i] << endl;
+    }
+}
