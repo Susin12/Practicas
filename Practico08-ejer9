@@ -1,0 +1,66 @@
+#include <iostream>
+using namespace std;
+
+const int MAX = 100;
+
+// Prototipos
+void leer(int v[], int &n, char nombre);
+int concatenar(const int a[], int n,
+               const int b[], int m, int c[]);
+void mostrar(const int v[], int n);
+
+int main() {
+    int a[MAX], b[MAX], c[2 * MAX];
+    int n, m, cantidad;
+
+    leer(a, n, 'A');
+    leer(b, m, 'B');
+
+    cantidad = concatenar(a, n, b, m, c);
+
+    cout << "Vector A: ";
+    mostrar(a, n);
+
+    cout << "Vector B: ";
+    mostrar(b, m);
+
+    cout << "Vector C concatenado: ";
+    mostrar(c, cantidad);
+
+    return 0;
+}
+
+void leer(int v[], int &n, char nombre) {
+    do {
+        cout << "Cantidad de elementos del vector "
+             << nombre << ": ";
+        cin >> n;
+    } while (n < 1 || n > MAX);
+
+    for (int i = 0; i < n; i++) {
+        cout << nombre << "[" << i << "]: ";
+        cin >> v[i];
+    }
+}
+
+int concatenar(const int a[], int n,
+               const int b[], int m, int c[]) {
+
+    for (int i = 0; i < n; i++) {
+        c[i] = a[i];
+    }
+
+    for (int j = 0; j < m; j++) {
+        c[n + j] = b[j];
+    }
+
+    return n + m;
+}
+
+void mostrar(const int v[], int n) {
+    for (int i = 0; i < n; i++) {
+        cout << v[i] << " ";
+    }
+
+    cout << endl;
+}
