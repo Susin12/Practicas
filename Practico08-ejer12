@@ -1,0 +1,70 @@
+#include <iostream>
+using namespace std;
+
+const int MAX = 100;
+
+// Prototipos
+void leer(int a[], int &n);
+int eliminarDuplicados(const int a[], int n, int b[]);
+void mostrar(const int v[], int n);
+
+int main() {
+    int a[MAX], b[MAX];
+    int n, cantidad;
+
+    leer(a, n);
+
+    cantidad = eliminarDuplicados(a, n, b);
+
+    cout << "Vector original: ";
+    mostrar(a, n);
+
+    cout << "Vector sin duplicados: ";
+    mostrar(b, cantidad);
+
+    cout << "Cantidad de elementos validos: "
+         << cantidad << endl;
+
+    return 0;
+}
+
+void leer(int a[], int &n) {
+    do {
+        cout << "Cantidad de elementos: ";
+        cin >> n;
+    } while (n < 1 || n > MAX);
+
+    for (int i = 0; i < n; i++) {
+        cout << "Ingrese un numero: ";
+        cin >> a[i];
+    }
+}
+
+int eliminarDuplicados(const int a[], int n, int b[]) {
+    int k = 0;
+
+    for (int i = 0; i < n; i++) {
+        bool existe = false;
+
+        for (int j = 0; j < k; j++) {
+            if (a[i] == b[j]) {
+                existe = true;
+            }
+        }
+
+        if (!existe) {
+            b[k] = a[i];
+            k++;
+        }
+    }
+
+    return k;
+}
+
+void mostrar(const int v[], int n) {
+    for (int i = 0; i < n; i++) {
+        cout << v[i] << " ";
+    }
+
+    cout << endl;
+}
