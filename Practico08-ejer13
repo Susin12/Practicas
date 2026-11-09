@@ -1,0 +1,55 @@
+#include <iostream>
+using namespace std;
+
+const int MAX = 100;
+
+// Prototipos
+void leer(int v[], int &n);
+void invertir(int v[], int n);
+void mostrar(const int v[], int n);
+
+int main() {
+    int v[MAX], n;
+
+    leer(v, n);
+
+    cout << "Vector antes de invertir: ";
+    mostrar(v, n);
+
+    invertir(v, n);
+
+    cout << "Vector despues de invertir: ";
+    mostrar(v, n);
+
+    return 0;
+}
+
+void leer(int v[], int &n) {
+    do {
+        cout << "Cantidad de elementos: ";
+        cin >> n;
+    } while (n < 1 || n > MAX);
+
+    for (int i = 0; i < n; i++) {
+        cout << "Ingrese un numero: ";
+        cin >> v[i];
+    }
+}
+
+void invertir(int v[], int n) {
+    for (int i = 0; i < n / 2; i++) {
+        int auxiliar = v[i];
+
+        v[i] = v[n - 1 - i];
+
+        v[n - 1 - i] = auxiliar;
+    }
+}
+
+void mostrar(const int v[], int n) {
+    for (int i = 0; i < n; i++) {
+        cout << v[i] << " ";
+    }
+
+    cout << endl;
+}
