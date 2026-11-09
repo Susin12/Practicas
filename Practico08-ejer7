@@ -1,0 +1,37 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+// Prototipos
+void leer(int &numero);
+string aLetras(int numero);
+
+int main() {
+    int numero;
+
+    leer(numero);
+
+    cout << "Numero escrito en letras: ";
+    cout << aLetras(numero) << endl;
+
+    return 0;
+}
+
+void leer(int &numero) {
+    do {
+        cout << "Ingrese un numero entre 0 y 20: ";
+        cin >> numero;
+    } while (numero < 0 || numero > 20);
+}
+
+string aLetras(int numero) {
+    string letras[21] = {
+        "CERO", "UNO", "DOS", "TRES", "CUATRO",
+        "CINCO", "SEIS", "SIETE", "OCHO", "NUEVE",
+        "DIEZ", "ONCE", "DOCE", "TRECE", "CATORCE",
+        "QUINCE", "DIECISEIS", "DIECISIETE",
+        "DIECIOCHO", "DIECINUEVE", "VEINTE"
+    };
+
+    return letras[numero];
+}
