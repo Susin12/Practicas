@@ -1,0 +1,92 @@
+#include <iostream>
+using namespace std;
+
+const int MAX = 100;
+
+// Prototipos
+void leerOrdenado(int v[], int &n, char nombre);
+int intercalar(const int a[], int n,
+               const int b[], int m, int c[]);
+void mostrar(const int v[], int n);
+
+int main() {
+    int a[MAX], b[MAX], c[2 * MAX];
+    int n, m, cantidad;
+
+    leerOrdenado(a, n, 'A');
+    leerOrdenado(b, m, 'B');
+
+    cantidad = intercalar(a, n, b, m, c);
+
+    cout << "Vector A: ";
+    mostrar(a, n);
+
+    cout << "Vector B: ";
+    mostrar(b, m);
+
+    cout << "Vector C intercalado: ";
+    mostrar(c, cantidad);
+
+    return 0;
+}
+
+void leerOrdenado(int v[], int &n, char nombre) {
+    do {
+        cout << "Cantidad de elementos del vector "
+             << nombre << ": ";
+        cin >> n;
+    } while (n < 1 || n > MAX);
+
+    for (int i = 0; i < n; i++) {
+        do {
+            cout << "Ingrese " << nombre << "[" << i << "]: ";
+            cin >> v[i];
+
+            if (i > 0 && v[i] < v[i - 1]) {
+                cout << "El numero debe ser mayor o igual "
+                     << "al anterior." << endl;
+            }
+
+        } while (i > 0 && v[i] < v[i - 1]);
+    }
+}
+
+int intercalar(const int a[], int n,
+               const int b[], int m, int c[]) {
+
+    int i = 0, j = 0, k = 0;
+
+    while (i < n && j < m) {
+        if (a[i] <= b[j]) {
+            c[k] = a[i];
+            i++;
+        } else {
+            c[k] = b[j];
+            j++;
+        }
+
+        k++;
+    }
+
+    while (i < n) {
+        c[k] = a[i];
+        i++;
+        k++;
+    }
+
+    while (j < m) {
+        c[k] = b[j];
+        j++;
+        k++;
+    }
+
+    return k;
+}
+
+void mostrar(const int v[], int n) {
+    for (int i = 0; i < n; i++) {
+        cout << v[i] << " ";
+    }
+
+    cout << endl;
+}
