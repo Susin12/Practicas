@@ -1,0 +1,220 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+// Prototipos de funciones
+void registrarProducto(string &nombre, string &marca, int &cantidad);
+void mostrarProducto(int i, string nombre, string marca, int cantidad);
+int buscarExacto(string productos[], string marcas[], int n, string nombre, string marca);
+void registrarProductos(string productos[], string marcas[], int cantidades[], int &n);
+void mostrarProductos(string productos[], string marcas[], int cantidades[], int n);
+void buscarProductos(string productos[], string marcas[], int cantidades[], int n);
+void actualizarStock(string productos[], string marcas[], int cantidades[], int n);
+void registrarVenta(string productos[], string marcas[], int cantidades[], int n);
+void mostrarMenu();
+
+int main() {
+    string productos[20], marcas[20];
+    int cantidades[20];
+    int n = 0;
+    int opcion;
+
+    do {
+        mostrarMenu();
+        cin >> opcion;
+
+        switch (opcion) {
+            case 1:
+                registrarProductos(productos, marcas, cantidades, n);
+                break;
+            case 2:
+                mostrarProductos(productos, marcas, cantidades, n);
+                break;
+            case 3:
+                buscarProductos(productos, marcas, cantidades, n);
+                break;
+            case 4:
+                actualizarStock(productos, marcas, cantidades, n);
+                break;
+            case 5:
+                registrarVenta(productos, marcas, cantidades, n);
+                break;
+            case 0:
+                cout << "Fin del programa" << endl;
+                break;
+            default:
+                cout << "Opcion no valida" << endl;
+        }
+    } while (opcion != 0);
+
+    return 0;
+}
+
+// Definicion de funciones
+
+// Ejercicio 1: pide los datos de UN producto (paso por referencia &)
+void registrarProducto(string &nombre, string &marca, int &cantidad) {
+    do {
+        cout << "Nombre del producto: ";
+        cin >> nombre;
+        if (nombre.empty()) {
+            cout << "El nombre no puede estar vacio" << endl;
+        } else if (nombre.length() < 3) {
+            cout << "El nombre debe tener al menos 3 caracteres" << endl;
+        }
+    } while (nombre.length() < 3);
+
+    do {
+        cout << "Marca: ";
+        cin >> marca;
+        if (marca.empty()) {
+            cout << "La marca no puede estar vacia" << endl;
+        } else if (marca.length() < 3) {
+            cout << "La marca debe tener al menos 3 caracteres" << endl;
+        }
+    } while (marca.length() < 3);
+
+    do {
+        cout << "Cantidad: ";
+        cin >> cantidad;
+        if (cantidad < 0) {
+            cout << "La cantidad no puede ser negativa" << endl;
+        }
+    } while (cantidad < 0);
+}
+
+// Ejercicio 1: muestra los datos de un producto
+void mostrarProducto(int i, string nombre, string marca, int cantidad) {
+    cout << i << ". " << nombre << " - " << marca << " - Stock: " << cantidad << endl;
+}
+
+// Ejercicio 2 y 4: busca por nombre y marca exactos. Devuelve la posicion o -1
+int buscarExacto(string productos[], string marcas[], int n, string nombre, string marca) {
+    for (int i = 0; i < n; i++) {
+        if (productos[i].compare(nombre) == 0 && marcas[i].compare(marca) == 0)
+            return i;       // posicion encontrada
+    }
+    return -1;              // no se encontro
+}
+
+// Ejercicio 2: registra varios productos en los arreglos
+void registrarProductos(string productos[], string marcas[], int cantidades[], int &n) {
+    int cuantos, cantidad;
+    string nombre, marca;
+
+    cout << "Cuantos productos desea registrar? (espacio libre: " << 20 - n << "): ";
+    cin >> cuantos;
+
+    if (cuantos >= 1 && cuantos <= 20 - n) {
+        for (int i = 0; i < cuantos; i++) {
+            cout << "\nProducto " << i + 1 << endl;
+            registrarProducto(nombre, marca, cantidad);
+
+            if (buscarExacto(productos, marcas, n, nombre, marca) == -1) {
+                productos[n] = nombre;
+                marcas[n] = marca;
+                cantidades[n] = cantidad;
+                cout << "Registro correcto: ";
+                mostrarProducto(n, productos[n], marcas[n], cantidades[n]);
+                n++;
+            } else {
+                cout << "Ese producto ya existe, no se registro" << endl;
+            }
+        }
+    } else {
+        cout << "Cantidad no valida" << endl;
+    }
+}
+
+// Ejercicio 2: muestra todos los productos
+void mostrarProductos(string productos[], string marcas[], int cantidades[], int n) {
+    cout << "\n--- LISTA DE PRODUCTOS ---" << endl;
+    for (int i = 0; i < n; i++) {
+        mostrarProducto(i, productos[i], marcas[i], cantidades[i]);
+    }
+    cout << "Total: " << n << " productos" << endl;
+}
+
+// Ejercicio 3: busqueda parcial con find()
+void buscarProductos(string productos[], string marcas[], int cantidades[], int n) {
+    string palabra;
+    int contador = 0;
+
+    cout << "Palabra a buscar: ";
+    cin >> palabra;
+
+    for (int i = 0; i < n; i++) {
+        int pos = productos[i].find(palabra);
+        if (pos != -1) {
+            mostrarProducto(i, productos[i], marcas[i], cantidades[i]);
+            contador++;
+        }
+    }
+    if (contador == 0)
+        cout << "No se encontraron productos" << endl;
+}
+
+// Ejercicio 4: cambia el stock de un producto
+void actualizarStock(string productos[], string marcas[], int cantidades[], int n) {
+    string nombre, marca;
+    int nuevo;
+
+    cout << "Nombre del producto: ";
+    cin >> nombre;
+    cout << "Marca: ";
+    cin >> marca;
+
+    int pos = buscarExacto(productos, marcas, n, nombre, marca);
+    if (pos == -1) {
+        cout << "Producto no encontrado" << endl;
+    } else {
+        cout << "Nuevo stock: ";
+        cin >> nuevo;
+        if (nuevo < 0) {
+            cout << "El stock no puede ser negativo" << endl;
+        } else {
+            cout << "Stock anterior: " << cantidades[pos] << endl;
+            cantidades[pos] = nuevo;
+            cout << "Stock nuevo: " << cantidades[pos] << endl;
+        }
+    }
+}
+
+// Ejercicio 5: descuenta las unidades vendidas
+void registrarVenta(string productos[], string marcas[], int cantidades[], int n) {
+    string nombre, marca;
+    int venta;
+
+    cout << "Nombre del producto: ";
+    cin >> nombre;
+    cout << "Marca: ";
+    cin >> marca;
+
+    int pos = buscarExacto(productos, marcas, n, nombre, marca);
+    if (pos == -1) {
+        cout << "Producto no encontrado" << endl;
+    } else {
+        cout << "Unidades a vender: ";
+        cin >> venta;
+        if (venta <= 0) {
+            cout << "La venta debe ser mayor que 0" << endl;
+        } else if (venta > cantidades[pos]) {
+            cout << "No hay suficiente stock. Disponible: " << cantidades[pos] << endl;
+        } else {
+            cantidades[pos] = cantidades[pos] - venta;
+            cout << "Venta registrada. Quedan " << cantidades[pos] << " unidades" << endl;
+        }
+    }
+}
+
+// Muestra el menu de opciones
+void mostrarMenu() {
+    cout << "\n--- MENU INVENTARIO ---" << endl;
+    cout << "1. Registrar productos" << endl;
+    cout << "2. Mostrar productos" << endl;
+    cout << "3. Buscar producto" << endl;
+    cout << "4. Actualizar stock" << endl;
+    cout << "5. Registrar venta" << endl;
+    cout << "0. Salir" << endl;
+    cout << "Opcion: ";
+}
