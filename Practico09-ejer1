@@ -1,0 +1,56 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+// Prototipos de funciones
+void registrarProducto(string &nombre, string &marca, int &cantidad);
+void mostrarProducto(int i, string nombre, string marca, int cantidad);
+
+int main() {
+    string nombre, marca;
+    int cantidad;
+
+    registrarProducto(nombre, marca, cantidad);
+    cout << "\nRegistro correcto:" << endl;
+    mostrarProducto(0, nombre, marca, cantidad);
+
+    return 0;
+}
+
+// Definicion de funciones
+
+// Ejercicio 1: pide los datos de UN producto (paso por referencia &)
+void registrarProducto(string &nombre, string &marca, int &cantidad) {
+    do {
+        cout << "Nombre del producto: ";
+        cin >> nombre;
+        if (nombre.empty()) {
+            cout << "El nombre no puede estar vacio" << endl;
+        } else if (nombre.length() < 3) {
+            cout << "El nombre debe tener al menos 3 caracteres" << endl;
+        }
+    } while (nombre.length() < 3);
+
+    do {
+        cout << "Marca: ";
+        cin >> marca;
+        if (marca.empty()) {
+            cout << "La marca no puede estar vacia" << endl;
+        } else if (marca.length() < 3) {
+            cout << "La marca debe tener al menos 3 caracteres" << endl;
+        }
+    } while (marca.length() < 3);
+
+    do {
+        cout << "Cantidad: ";
+        cin >> cantidad;
+        if (cantidad < 0) {
+            cout << "La cantidad no puede ser negativa" << endl;
+        }
+    } while (cantidad < 0);
+}
+
+// Ejercicio 1: muestra los datos de un producto
+void mostrarProducto(int i, string nombre, string marca, int cantidad) {
+    cout << i << ". " << nombre << " - " << marca << " - Stock: " << cantidad << endl;
+}
